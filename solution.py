@@ -33,7 +33,7 @@ def main():
     with torch.no_grad():
         EnergyDeposit_val = []
         for ParticleMomentum_ParticlePoint_val_batch in tqdm(calo_dataloader_val):
-            noise = torch.tensor(np.random.normal(0,1,size=(1024, 30))).float()
+            noise = torch.tensor(np.random.normal(0,1,size=(len(ParticleMomentum_ParticlePoint_val_batch[0]), 30))).float()
             EnergyDeposit_val_batch = generator_cpu.decode(noise, ParticleMomentum_ParticlePoint_val_batch[0]).detach().numpy()
             EnergyDeposit_val.append(EnergyDeposit_val_batch)
         np.savez_compressed(val_data_path_out, 
@@ -53,7 +53,7 @@ def main():
     with torch.no_grad():
         EnergyDeposit_test = []
         for ParticleMomentum_ParticlePoint_test_batch in tqdm(calo_dataloader_test):
-            noise = torch.tensor(np.random.normal(0,1,size=(1024, 30))).float()
+            noise = torch.tensor(np.random.normal(0,1,size=(len(ParticleMomentum_ParticlePoint_test_batch[0]), 30))).float()
             EnergyDeposit_test_batch = generator_cpu.decode(noise, ParticleMomentum_ParticlePoint_test_batch[0]).detach().numpy()
             EnergyDeposit_test.append(EnergyDeposit_test_batch)
         np.savez_compressed(test_data_path_out, 
