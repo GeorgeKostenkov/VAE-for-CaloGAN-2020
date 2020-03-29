@@ -1,3 +1,14 @@
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.optim as optim
+import torch.utils.data as utils
+import numpy as np
+import matplotlib.pyplot as plt
+from tqdm import tqdm, tqdm_notebook
+import seaborn as sns
+from IPython.display import clear_output
+
 class VAE(nn.Module):
 	def __init__(self, h_dim=128, z_dim=30):
 		super(VAE, self).__init__()
