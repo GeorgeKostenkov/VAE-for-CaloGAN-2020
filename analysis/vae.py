@@ -6,8 +6,6 @@ import torch.utils.data as utils
 import numpy as np
 import matplotlib.pyplot as plt
 from tqdm import tqdm, tqdm_notebook
-import seaborn as sns
-from IPython.display import clear_output
 
 class VAE(nn.Module):
 	def __init__(self, h_dim=128, z_dim=30):
