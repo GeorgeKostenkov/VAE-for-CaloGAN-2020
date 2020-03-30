@@ -20,7 +20,7 @@ def main():
     test_data_path_out = output_dir + '/data_test_prediction.npz'
     
     generator_cpu = VAE()
-    generator_cpu.load_state_dict(torch.load(os.path.dirname(os.path.abspath(__file__)) + '/vae3.pt'))
+    generator_cpu.load_state_dict(torch.load(os.path.dirname(os.path.abspath(__file__)) + '/vae8.pt'))
     generator_cpu.eval()
     
     # val
